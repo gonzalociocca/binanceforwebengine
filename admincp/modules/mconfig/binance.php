@@ -90,7 +90,7 @@ $creditSystem = new CreditSystem();
 			</td>
 		</tr>
 		<tr>
-			<th>Binance Donations Title<br/><span>Titulo de la compra. Ejemplo: "Servicio de WCoinC".</span></th>
+			<th>Binance Donations Title<br/><span>Titulo de la compra(not used but never leave it blank.). Ejemplo: "Servicio de WCoinC".</span></th>
 			<td>
 				<input style="width: 100%;" class="input-xxlarge" type="text" name="setting_4" value="<?=mconfig('binance_title')?>"/>
 			</td>
@@ -102,7 +102,7 @@ $creditSystem = new CreditSystem();
 			</td>
 		</tr>
 		<tr>
-			<th>Currency Code<br/><span>Elije la moneda de tu País: </span></th>
+			<th>Currency Code<br/><span>Binance Currency(normally USDT) </span></th>
 			<td>
 				<input style="width: 100%;" class="input-xxlarge" type="text" name="setting_6" value="<?=mconfig('binance_currency')?>"/>
 			</td>
@@ -115,7 +115,7 @@ $creditSystem = new CreditSystem();
 			</td>
 		</tr>
 		<tr>
-			<th>IPN Notify URL<br/><span>URL en donde se encuentra alojada la API <br>(si se realiza una compra o se cancela la API noficara en la DB dicho proceso).<br/></span></th>
+			<th>IPN Notify URL<br/><span>URL en donde se encuentra alojada la API <br>(not used, we use the merchant webhook in binance)<br/></span></th>
 			<td>
 				<input style="width: 100%;" class="input-xxlarge" type="text" name="setting_9" value="<?=mconfig('binance_api_return_url')?>"/>
 			</td>
