@@ -1,7 +1,6 @@
 # binanceforwebengine
-Binance Module for WebEngine Single(Free)/Auto(Paid)
+Binance Module for WebEngine with API to automatically give credits on successful payment.
 Donations on: https://paypal.me/gonzalonicolasciocca/
-for automatic payments api contact me in impossibledive@gmail.com
 discord: shadowarfare
 
 want to test the module firsthand? go to https://immortalmu.net/donation/binance/
