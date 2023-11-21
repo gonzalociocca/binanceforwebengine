@@ -1,5 +1,6 @@
 # binanceforwebengine
 Binance Module for WebEngine with API to automatically give credits on successful payment.
+Want to get some premium modules for Mu Online? go to https://www.patreon.com/GonzaloCiocca/shop
 Donations on: https://paypal.me/gonzalonicolasciocca/
 discord: shadowarfare
 
