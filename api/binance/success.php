@@ -50,6 +50,7 @@
 	$timestamp = round(microtime(true) * 1000);
     $payload = $timestamp."\n".$nonce."\n".$json_request."\n";
     $signature = strtoupper(hash_hmac('SHA512',$payload,$secret_key));
+    $debug = 0; // debug = 1 if you want to test payments and give credits even if they dont pay, debug = 0 if you want to give credits to real payments
     $headers = array();
     $headers[] = "Content-Type: application/json";
     $headers[] = "binancepay-timestamp: $timestamp";
@@ -75,7 +76,7 @@
 
 	if($verified=="1"){
 		//Right signature
-		if($status == "PAY_SUCCESS"){
+		if($status == "PAY_SUCCESS" || $debug == 1){
 		$info_data=json_decode($json_string['data'],true);
 		$info_desc=$info_data['productName'];
 		$arr = explode(" ",$info_desc);
