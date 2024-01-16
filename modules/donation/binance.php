@@ -31,7 +31,7 @@ $tipoDeMoneda = mconfig('binance_currency');
 $user = $accountInfo[_CLMN_USERNM_];
 $success =  mconfig('binance_return_url');  
 $creditSelected = mconfig('credit_selected');
-$debug = 1; // debug 1/0 on/off
+$debug = 0; // debug 1/0 on/off
 
 $urlapi = "https://bpay.binanceapi.com/binancepay/openapi/v2/order";
 
