@@ -18,3 +18,5 @@ See if your api is set up correctly, go to your http://yourwebsite.com/api/binan
 ![image](https://i.imgur.com/cBx8Icd.png)
 ![image](https://i.imgur.com/pmIGu4q.png)
 ![image](https://i.imgur.com/DeqMSta.png)
+Grant permissions to binance api to process payments on api creation, important
+![image](https://i.imgur.com/93yoP4q.png)
