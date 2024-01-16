@@ -30,7 +30,8 @@ $description= mconfig('binance_description');
 $tipoDeMoneda = mconfig('binance_currency'); 
 $user = $accountInfo[_CLMN_USERNM_];
 $success =  mconfig('binance_return_url');  
-$creditSelected = mconfig('credit_selected'); 
+$creditSelected = mconfig('credit_selected');
+$debug = 1; // debug 1/0 on/off
 
 $urlapi = "https://bpay.binanceapi.com/binancepay/openapi/v2/order";
 
@@ -44,8 +45,9 @@ for($x=0;$x<$cantidadbotones;$x++){
 		try {
 			$pos = mt_rand(0, strlen($chars) - 1);
 		} catch (Exception $e) {
-		echo "Caught exception[mt_rand]: " . $e->getMessage();
+		print "Caught exception[mt_rand]: " . $e->getMessage();
 		} finally {
+			if($debug == 1) {print ' 5:' . $pos;}
 		}
         $char = $chars[$pos];
         $nonce .= $char;
@@ -54,8 +56,9 @@ for($x=0;$x<$cantidadbotones;$x++){
 	try {
 		$ch = curl_init();
 	} catch (Exception $e) {
-    echo "Caught exception[curl]: " . $e->getMessage();
+    print "Caught exception[curl]: " . $e->getMessage();
 	} finally {
+		if($debug == 1) {print ' 5:' . $ch;}
 	}
 	
     $timestamp = round(microtime(true) * 1000);
@@ -83,8 +86,9 @@ for($x=0;$x<$cantidadbotones;$x++){
 	try {
 		$json_request = json_encode($request);
 	} catch (Exception $e) {
-    echo "Caught exception[JSON]: " . $e->getMessage();
+    print "Caught exception[JSON]: " . $e->getMessage();
 	} finally {
+		if($debug == 1) {print ' 5:' . $json_request;}
 	}
 	
     $payload = $timestamp."\n".$nonce."\n".$json_request."\n";
@@ -95,8 +99,9 @@ for($x=0;$x<$cantidadbotones;$x++){
 	try {
 		$signature = strtoupper(hash_hmac('SHA512',$payload,$binance_pay_secret));
 	} catch (Exception $e) {
-    echo "Caught exception[hash_hmac]: " . $e->getMessage();
+    print "Caught exception[hash_hmac]: " . $e->getMessage();
 	} finally {
+		if($debug == 1) {print ' 5:' . $signature;}
 	}
 	
     $headers = array();
@@ -117,8 +122,9 @@ for($x=0;$x<$cantidadbotones;$x++){
 	try {
 		$result = curl_exec($ch);
 	} catch (Exception $e) {
-    echo "Caught exception[curl_exec]: " . $e->getMessage();
+    print "Caught exception[curl_exec]: " . $e->getMessage();
 	} finally {
+		if($debug == 1) {print ' 5:' . $result;}
 	}
 	
     if (curl_errno($ch)) { echo 'Error:' . curl_error($ch); }
@@ -130,8 +136,9 @@ for($x=0;$x<$cantidadbotones;$x++){
 	try {
 		$checkout= json_decode($result,true)['data']['universalUrl'];
 	} catch (Exception $e) {
-    echo "Caught exception[json_decode]: " . $e->getMessage();
+    print "Caught exception[json_decode]: " . $e->getMessage();
 	} finally {
+		if($debug == 1) {print ' 5:' . $checkout;}
 	}
 	
 	$paylinks[$x]=$checkout;
